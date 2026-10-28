@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ShopperPredict - Online Shoppers Purchase Prediction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css?v=2">
+</head>
+<body>
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="brand">
+      <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L21 7H6"/></svg>
+      <h2>ShopperPredict</h2>
+      <p>Smart Prediction, Smarter Business</p>
+    </div>
+
+    <nav class="nav">
+      <a href="#home" class="nav-link active" data-target="home">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 2 12h3v8h5v-5h4v5h5v-8h3z"/></svg>Home
+      </a>
+      <a href="#predict" class="nav-link" data-target="predict">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>Predict
+      </a>
+      <a href="/docs" target="_blank" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h8l6 6v14H6zm7 1.5V9h5.5zM9 13h8v1.6H9zm0 3.5h8V18H9z"/></svg>API Docs
+      </a>
+      <a href="#about" class="nav-link" data-target="about">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1.2 15h-2.4v-6h2.4zM12 9.2a1.4 1.4 0 1 1 0-2.8 1.4 1.4 0 0 1 0 2.8z"/></svg>About
+      </a>
+    </nav>
+
+    <div class="side-art" aria-hidden="true">
+      <svg viewBox="0 0 120 120" width="140" height="140" fill="none">
+        <path d="M38 40a22 22 0 0 1 44 0" stroke="#a78bfa" stroke-width="7" stroke-linecap="round"/>
+        <path d="M28 42h64l6 62H22z" fill="#8b5cf6"/>
+        <path d="M44 66l16 14 16-14" stroke="#ddd6fe" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <div class="powered">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 6 1V4a3 3 0 0 0-3 0zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-6 1V4a3 3 0 0 1 3 0z"/></svg>
+      <div><small>Powered by</small><strong>ANN Model</strong></div>
+    </div>
+    <p class="side-foot">Online Shoppers<br>Purchase Prediction API<br><span>v1.0.0</span></p>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <header class="hero" id="home">
+      <div class="hero-icon">
+        <svg viewBox="0 0 64 64" fill="none"><path d="M16 22h32l3 34H13z" fill="#7c3aed"/><path d="M24 22v-4a8 8 0 0 1 16 0v4" stroke="#6d28d9" stroke-width="4" stroke-linecap="round"/><circle cx="26" cy="34" r="2" fill="#fff"/><circle cx="38" cy="34" r="2" fill="#fff"/><path d="M26 42q6 5 12 0" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <h1>Online Shoppers<br>Purchase Prediction</h1>
+        <p>Enter the shopper details below to predict whether they will make a purchase.</p>
+      </div>
+      <div class="api-pill"><span class="dot" id="apiDot"></span><span id="apiText">Checking…</span>
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>
+      </div>
+    </header>
+
+    <div class="grid" id="predict">
+
+      <!-- LEFT -->
+      <div class="col">
+        <section class="card">
+          <h3 class="card-title">
+            <svg viewBox="0 0 24 24" fill="#7c3aed" width="24" height="24"><path d="m3 17.2V21h3.8L18 9.8 14.2 6zM20.7 7a1 1 0 0 0 0-1.4l-2.3-2.3a1 1 0 0 0-1.4 0l-1.8 1.8 3.8 3.8z"/></svg>
+            Input Shopper Details
+          </h3>
+
+          <form id="predictForm" novalidate>
+            <div class="row r3">
+              <label>Administrative<input type="number" name="Administrative" min="0" step="1" value="5" required></label>
+              <label>Administrative_Duration<input type="number" name="Administrative_Duration" min="0" step="any" value="120" required></label>
+              <label>Informational<input type="number" name="Informational" min="0" step="1" value="2" required></label>
+            </div>
+            <div class="row r3">
+              <label>Informational_Duration<input type="number" name="Informational_Duration" min="0" step="any" value="45" required></label>
+              <label>ProductRelated<input type="number" name="ProductRelated" min="0" step="1" value="50" required></label>
+              <label>ProductRelated_Duration<input type="number" name="ProductRelated_Duration" min="0" step="any" value="1800" required></label>
+            </div>
+            <div class="row r3">
+              <label>BounceRates<input type="number" name="BounceRates" min="0" max="1" step="any" value="0.002" required></label>
+              <label>PageValues<input type="number" name="PageValues" min="0" step="any" value="25" required></label>
+              <label>SpecialDay<input type="number" name="SpecialDay" min="0" max="1" step="any" value="0" required></label>
+            </div>
+            <div class="row r4">
+              <label>OperatingSystems<input type="number" name="OperatingSystems" min="1" step="1" value="2" required></label>
+              <label>Browser<input type="number" name="Browser" min="1" step="1" value="2" required></label>
+              <label>Region<input type="number" name="Region" min="1" step="1" value="1" required></label>
+              <label>TrafficType<input type="number" name="TrafficType" min="1" step="1" value="2" required></label>
+            </div>
+            <div class="row r-last">
+              <label>Month
+                <select name="Month">
+                  <option>Feb</option><option>Mar</option><option>May</option><option>June</option>
+                  <option>Jul</option><option>Aug</option><option>Sep</option><option>Oct</option>
+                  <option selected>Nov</option><option>Dec</option>
+                </select>
+              </label>
+              <label>VisitorType
+                <select name="VisitorType">
+                  <option value="Returning_Visitor" selected>Returning_Visitor</option>
+                  <option value="New_Visitor">New_Visitor</option>
+                  <option value="Other">Other</option>
+                </select>
+              </label>
+              <div class="field">
+                <span class="lbl">Weekend</span>
+                <label class="switch">
+                  <input type="checkbox" name="Weekend" id="weekend">
+                  <span class="slider"></span>
+                  <span class="switch-text" id="weekendText">No</span>
+                </label>
+              </div>
+            </div>
+
+            <p class="error" id="formError" role="alert" hidden></p>
+            <button type="submit" class="btn-primary" id="predictBtn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M2 21 23 12 2 3v7l15 2-15 2z"/></svg>
+              <span>Predict Purchase</span>
+            </button>
+          </form>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h3 class="card-title">
+              <svg viewBox="0 0 24 24" fill="#6d28d9" width="24" height="24"><path d="M4 20h4V10H4zm6 0h4V4h-4zm6 0h4v-7h-4z"/></svg>
+              Sample Input (Example)
+            </h3>
+            <button type="button" class="btn-ghost" id="useExample">Use Example →</button>
+          </div>
+          <!-- Sample is written directly in HTML so it always shows -->
+          <pre class="code" id="sampleCode">{
+  <span class="k">"Administrative"</span>: <span class="n">5</span>,
+  <span class="k">"Administrative_Duration"</span>: <span class="n">120.0</span>,
+  <span class="k">"Informational"</span>: <span class="n">2</span>,
+  <span class="k">"Informational_Duration"</span>: <span class="n">45.0</span>,
+  <span class="k">"ProductRelated"</span>: <span class="n">50</span>,
+  <span class="k">"ProductRelated_Duration"</span>: <span class="n">1800.0</span>,
+  <span class="k">"BounceRates"</span>: <span class="n">0.002</span>,
+  <span class="k">"PageValues"</span>: <span class="n">25.0</span>,
+  <span class="k">"SpecialDay"</span>: <span class="n">0.0</span>,
+  <span class="k">"OperatingSystems"</span>: <span class="n">2</span>,
+  <span class="k">"Browser"</span>: <span class="n">2</span>,
+  <span class="k">"Region"</span>: <span class="n">1</span>,
+  <span class="k">"TrafficType"</span>: <span class="n">2</span>,
+  <span class="k">"Month"</span>: <span class="s">"Nov"</span>,
+  <span class="k">"VisitorType"</span>: <span class="s">"Returning_Visitor"</span>,
+  <span class="k">"Weekend"</span>: <span class="n">true</span>
+}</pre>
+        </section>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="col">
+        <section class="card result-card">
+          <div class="result-head">
+            <span class="check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>
+            </span>
+            <h3>Prediction Result</h3>
+          </div>
+          <div class="result-body" id="resultBody" data-state="idle">
+            <div class="result-main">
+              <div class="result-icon">
+                <svg class="icon-cart" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4" fill="#fff"/><circle cx="18" cy="20" r="1.4" fill="#fff"/><path d="M2 3h3l2.6 12.2a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L21 7H6"/></svg>
+                <svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+              </div>
+              <div>
+                <h2 id="resultTitle">Awaiting Prediction</h2>
+                <p id="resultDesc">Fill the form and click Predict Purchase.</p>
+              </div>
+            </div>
+            <div class="prob-box">
+              <h4>Purchase Probability</h4>
+              <div class="prob-value" id="probValue">--%</div>
+              <div class="bar"><div class="bar-fill" id="barFill"></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card quick">
+          <h3 class="card-title">
+            <svg viewBox="0 0 24 24" fill="#fbbf24" width="24" height="24"><path d="M9 21h6v-1H9zm3-19a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+            Quick Info
+          </h3>
+          <dl>
+            <div><dt>Model Type</dt><dd>: Artificial Neural Network (ANN)</dd></div>
+            <div><dt>Input Features</dt><dd>: Encoded &amp; scaled automatically</dd></div>
+            <div><dt>Scaler</dt><dd>: MinMaxScaler</dd></div>
+          </dl>
+        </section>
+
+        <section class="card docs-card" id="about">
+          <h3 class="card-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" width="28" height="28" stroke-linejoin="round"><path d="M12 6c-2-1.5-5-2-9-2v14c4 0 7 .5 9 2 2-1.5 5-2 9-2V4c-4 0-7 .5-9 2zM12 6v14"/></svg>
+            API Documentation
+          </h3>
+          <p>Explore the full API documentation.</p>
+          <a href="/docs" target="_blank" class="btn-primary btn-sm">View Docs →</a>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="/static/script.js?v=2"></script>
+</body>
+</html>
